@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rodrigo Kang">
+<meta name="dcterms.date" content="2026-03-11">
+
+<title>Data Science in the Age of Hype</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="data-science-age-of-hype_files/libs/clipboard/clipboard.min.js"></script>
+<script src="data-science-age-of-hype_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="data-science-age-of-hype_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="data-science-age-of-hype_files/libs/quarto-html/popper.min.js"></script>
+<script src="data-science-age-of-hype_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="data-science-age-of-hype_files/libs/quarto-html/anchor.min.js"></script>
+<link href="data-science-age-of-hype_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="data-science-age-of-hype_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="data-science-age-of-hype_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="data-science-age-of-hype_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="data-science-age-of-hype_files/libs/bootstrap/bootstrap-0d32754dec5c963b719b68ad757b426b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<meta name="mermaid-theme" content="default">
+<script src="data-science-age-of-hype_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="data-science-age-of-hype_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="data-science-age-of-hype_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-rise-of-data-science" id="toc-the-rise-of-data-science" class="nav-link active" data-scroll-target="#the-rise-of-data-science"><span class="header-section-number">1</span> The Rise of Data Science</a>
+  <ul>
+  <li><a href="#the-nature-of-science-and-the-scientific-method" id="toc-the-nature-of-science-and-the-scientific-method" class="nav-link" data-scroll-target="#the-nature-of-science-and-the-scientific-method"><span class="header-section-number">1.1</span> The Nature of Science and the Scientific Method</a></li>
+  <li><a href="#the-scientific-mindset-of-a-data-scientist" id="toc-the-scientific-mindset-of-a-data-scientist" class="nav-link" data-scroll-target="#the-scientific-mindset-of-a-data-scientist"><span class="header-section-number">1.2</span> The Scientific Mindset of a Data Scientist</a></li>
+  <li><a href="#data-science-as-a-strategic-value-engine" id="toc-data-science-as-a-strategic-value-engine" class="nav-link" data-scroll-target="#data-science-as-a-strategic-value-engine"><span class="header-section-number">1.3</span> Data Science as a Strategic Value Engine</a></li>
+  <li><a href="#the-fundamental-constituents-of-data-science" id="toc-the-fundamental-constituents-of-data-science" class="nav-link" data-scroll-target="#the-fundamental-constituents-of-data-science"><span class="header-section-number">1.4</span> The Fundamental Constituents of Data Science</a></li>
+  <li><a href="#essential-concepts-of-computation" id="toc-essential-concepts-of-computation" class="nav-link" data-scroll-target="#essential-concepts-of-computation"><span class="header-section-number">1.5</span> Essential Concepts of Computation</a>
+  <ul class="collapse">
+  <li><a href="#python-a-language-for-thought-and-computation" id="toc-python-a-language-for-thought-and-computation" class="nav-link" data-scroll-target="#python-a-language-for-thought-and-computation"><span class="header-section-number">1.5.1</span> <code>Python</code>: A Language for Thought and Computation</a>
+  <ul class="collapse">
+  <li><a href="#python-scripting-and-modules-anaconda-project-and-jupyter-notebooks" id="toc-python-scripting-and-modules-anaconda-project-and-jupyter-notebooks" class="nav-link" data-scroll-target="#python-scripting-and-modules-anaconda-project-and-jupyter-notebooks"><span class="header-section-number">1.5.1.1</span> Python Scripting and Modules, Anaconda Project and Jupyter Notebooks</a></li>
+  <li><a href="#the-jupyter-ecosystem-interactive-computing-reimagined" id="toc-the-jupyter-ecosystem-interactive-computing-reimagined" class="nav-link" data-scroll-target="#the-jupyter-ecosystem-interactive-computing-reimagined"><span class="header-section-number">1.5.1.2</span> The Jupyter Ecosystem: Interactive Computing Reimagined</a></li>
+  <li><a href="#python-modules-the-architecture-of-reusable-code" id="toc-python-modules-the-architecture-of-reusable-code" class="nav-link" data-scroll-target="#python-modules-the-architecture-of-reusable-code"><span class="header-section-number">1.5.1.3</span> Python Modules: The Architecture of Reusable Code</a></li>
+  <li><a href="#the-installation-pathway-a-note-on-getting-started" id="toc-the-installation-pathway-a-note-on-getting-started" class="nav-link" data-scroll-target="#the-installation-pathway-a-note-on-getting-started"><span class="header-section-number">1.5.1.4</span> The Installation Pathway: A Note on Getting Started</a></li>
+  <li><a href="#the-python-universe-a-glimpse-at-the-ecosystem" id="toc-the-python-universe-a-glimpse-at-the-ecosystem" class="nav-link" data-scroll-target="#the-python-universe-a-glimpse-at-the-ecosystem"><span class="header-section-number">1.5.1.5</span> The Python Universe: A Glimpse at the Ecosystem</a></li>
+  </ul></li>
+  <li><a href="#r-a-language-for-statistical-thinking" id="toc-r-a-language-for-statistical-thinking" class="nav-link" data-scroll-target="#r-a-language-for-statistical-thinking"><span class="header-section-number">1.5.2</span> <code>R</code>: A Language for Statistical Thinking</a>
+  <ul class="collapse">
+  <li><a href="#why-r-matters-in-modern-data-science" id="toc-why-r-matters-in-modern-data-science" class="nav-link" data-scroll-target="#why-r-matters-in-modern-data-science"><span class="header-section-number">1.5.2.1</span> Why R Matters in Modern Data Science</a></li>
+  <li><a href="#the-statistical-philosophy-embedded-in-the-language" id="toc-the-statistical-philosophy-embedded-in-the-language" class="nav-link" data-scroll-target="#the-statistical-philosophy-embedded-in-the-language"><span class="header-section-number">1.5.2.2</span> The Statistical Philosophy Embedded in the Language</a></li>
+  <li><a href="#a-brief-history-of-r-and-its-relationship-to-s" id="toc-a-brief-history-of-r-and-its-relationship-to-s" class="nav-link" data-scroll-target="#a-brief-history-of-r-and-its-relationship-to-s"><span class="header-section-number">1.5.2.3</span> A Brief History of R and Its Relationship to S</a></li>
+  <li><a href="#the-r-ecosystem" id="toc-the-r-ecosystem" class="nav-link" data-scroll-target="#the-r-ecosystem"><span class="header-section-number">1.5.2.4</span> The R Ecosystem</a></li>
+  <li><a href="#the-installation-pathway-a-note-on-getting-started-1" id="toc-the-installation-pathway-a-note-on-getting-started-1" class="nav-link" data-scroll-target="#the-installation-pathway-a-note-on-getting-started-1"><span class="header-section-number">1.5.2.5</span> The Installation Pathway: A Note on Getting Started</a></li>
+  </ul></li>
+  <li><a href="#r-and-python-as-complementary-instruments" id="toc-r-and-python-as-complementary-instruments" class="nav-link" data-scroll-target="#r-and-python-as-complementary-instruments"><span class="header-section-number">1.5.3</span> R and Python as Complementary Instruments</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data-science-age-of-hype.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Science in the Age of Hype</h1>
+<p class="subtitle lead">Why the scientific method still matters</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rodrigo Kang </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 11, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-rise-of-data-science" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> The Rise of Data Science</h1>
+<p>Data has become one of the most valuable assets of any modern organization. The unprecedented flow of information—resulting from countless digital interactions such as clicks, e-commerce transactions, mobile communications, and social media activity—reflects its central role in contemporary society. At the same time, the rapid advances in computing that enable large-scale data collection, storage, and processing are radically transforming the way businesses, governments, scientific communities, and institutions make decisions.</p>
+<p>Yet, raw data by itself is meaningless. It only acquires value when subjected to systematic and rigorous analysis through methodologies capable of detecting patterns, inferring relationships, predicting trends, and ultimately translating insights into decisions with real-world impact. This is why Clive Humby’s now-famous analogy describes data as “the new oil”: like crude oil, data must be refined before it can generate value. The crucial element is not the “raw material” itself but the techniques used to extract its potential and the knowledge derived from it. This reflection naturally leads to a fundamental question: what do we really mean by Data Science?</p>
+<p>Historically, the term Data Science emerged from an evolutionary process shaped by multiple contributions that helped formalize it as a discipline. Although its roots lie in statistics and computer science, its consolidation as an autonomous field took place over more than half a century of theoretical and technological developments.</p>
+<p>The conceptual seed of Data Science can be traced back to 1962, when American statistician John W. Tukey published his influential essay <em>The Future of Data Analysis</em>. In it, Tukey argued that statistics should not be confined to hypothesis confirmation alone, but should place equal emphasis on the exploration, diagnosis, and understanding of data <span class="citation" data-cites="tukey1962future donoho2017"><a href="#ref-tukey1962future" role="doc-biblioref">[1]</a>, <a href="#ref-donoho2017" role="doc-biblioref">[2]</a></span>. He introduced <em>data analysis</em> as a distinct discipline, anticipating the vision of a “science of learning from data”—one in which empirical inquiry and iterative interaction with data occupy the core of quantitative knowledge.</p>
+<p>Later, in 1974, Danish computer scientist Peter Naur, in his <em>Concise Survey of Computer Methods</em>, explicitly used the terms <em>Data Science</em> and <em>Datalogy</em> to refer to the systematic study of data <span class="citation" data-cites="naur1974concise"><a href="#ref-naur1974concise" role="doc-biblioref">[3]</a></span>. Naur argued that computing should focus on the structure, meaning, and organization of data rather than on hardware or programming. Although his proposal went largely unnoticed for years, it laid conceptual foundations that would be revisited decades later.</p>
+<p>In 1997, statistician C.F. Jeff Wu, during his inaugural lecture at the University of Michigan titled <em>Statistics = Data Science?</em>, proposed renaming statistics as <em>Data Science</em> and calling modern statisticians <em>data scientists</em> <span class="citation" data-cites="wu1997statistics"><a href="#ref-wu1997statistics" role="doc-biblioref">[4]</a></span>. His goal was to signal a new era in which statistical inference should integrate with computation and empirical analysis to move beyond mere data description and outdated stereotypes.</p>
+<p>This perspective was further developed in 2001 by William S. Cleveland in his seminal article <em>Data Science: an Action Plan for Expanding the Technical Areas of the Field of Statistics</em> <span class="citation" data-cites="cleveland2001data"><a href="#ref-cleveland2001data" role="doc-biblioref">[5]</a></span>. Cleveland proposed a systematic expansion of statistics by identifying six core technical areas of Data Science: multidisciplinary investigations, models and methods for data, computing with data, pedagogy, tool evaluation, and theory. Rather than allowing statistics to contract into a narrowly mathematical discipline, he emphasized the central role of computation, real-world data analysis, education, and the development and evaluation of tools. His framework laid the conceptual groundwork for understanding Data Science as a comprehensive, data-centered field—deeply rooted in statistics, yet necessarily broader in scope and practice.</p>
+<p>That same year, Leo Breiman, a statistician at the University of California, Berkeley, published his influential essay <em>Statistical Modeling: The Two Cultures</em>, in which he argued that statistical modeling serves two fundamental purposes: <strong>information</strong>—extracting insight into how nature associates response variables with input variables—and <strong>prediction</strong>—the ability to accurately anticipate future responses for new observations <span class="citation" data-cites="breiman2001statistical"><a href="#ref-breiman2001statistical" role="doc-biblioref">[6]</a></span>. Breiman critically observed that traditional statistical practice had largely privileged the informational goal through highly structured, assumption-driven models, often at the expense of predictive performance. He advocated for a broader methodological perspective in which algorithmic and data-driven approaches play a central role, emphasizing prediction as an essential complement rather than a secondary objective. This distinction, and the tension it revealed between explanation and prediction, foreshadowed core principles of modern Data Science, where understanding and predictive accuracy are treated as intertwined but distinct aims.</p>
+<p>By the late 2000s, the rise of Big Data and the growing need for professionals capable of combining statistics, programming, and domain expertise fueled the popularization of both the term Data Science and the role of the data scientist. Media consolidation came in 2012, when Thomas H. Davenport and DJ Patil published <em>Data Scientist: The Sexiest Job of the 21st Century</em> in the <em>Harvard Business Review</em> <span class="citation" data-cites="davenport2012data"><a href="#ref-davenport2012data" role="doc-biblioref">[7]</a></span>. Since then, Data Science has become a strategic discipline across both academia and industry.</p>
+<p>Today, Data Science is recognized as an interdisciplinary field that integrates statistical, computational, and conceptual methods to extract knowledge, infer patterns, and generate predictions from data. In many ways, it represents the natural evolution of statistics a discipline now equipped to address complex phenomena in fields as diverse as economics, biology, marketing, and physics.</p>
+<p>However, despite its relevance and expansion, the term <em>Data Science</em> has become somewhat diffuse, often distorted by media overexposure. This ambiguity calls for a deeper examination of its epistemological foundations: if we speak of a <strong>Science</strong> of Data, we must ask what makes a discipline a science?</p>
+<p>From this perspective, Data Science can indeed be considered a science. Its scientific character lies in the systematic application of the scientific method to the study of data. The data scientist formulates hypotheses, analyzes observations, and tests results just as any other scientist does. The difference lies in the object of study: data as a quantitative representation of reality.</p>
+<p>In this sense, Data Science can be viewed as a generalization of statistics extending its focus from <strong>inference</strong> (understanding how the world behaves based on observed data) to <strong>prediction</strong> (anticipating how it might behave under new conditions). This predictive capability, powered by machine learning algorithms, enables the effective application of the <strong>Hypothetical-Deductive Method</strong>: formulating hypotheses about future phenomena and testing them through data and predictive models. In other words, machine learning acts as a technological enabler that materializes Breiman’s inference–prediction duality, providing tools to model complex relationships directly from data and to test hypotheses that were previously unreachable with traditional statistical methods. It is this integration of inference, prediction, and empirical validation that solidifies the scientific nature of the discipline.</p>
+<p>Understanding these foundations is essential for interpreting the true scope of Data Science. While the discipline draws from statistics, computer science, and domain expertise, its ultimate objective is not merely the manipulation of data but the extraction of reliable knowledge about the world. In this sense, Data Science should not be understood as a collection of algorithms or software tools, but as a methodological framework for reasoning under uncertainty.</p>
+<p>However, the rapid growth of the field has also brought an unintended consequence: a proliferation of narratives that portray Data Science primarily as a technological revolution driven by ever more sophisticated algorithms. In many contexts, the emphasis has shifted toward tools, automation, and predictive performance, sometimes overshadowing the epistemological principles that historically guided scientific inquiry.</p>
+<p>This tension raises a critical question for modern practitioners: if Data Science claims to be a science, what role does the scientific method play in its practice today? Addressing this question requires revisiting the principles that define scientific reasoning and examining how they apply to the analysis and interpretation of data in an era increasingly shaped by computational power and algorithmic models.</p>
+<section id="the-nature-of-science-and-the-scientific-method" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="the-nature-of-science-and-the-scientific-method"><span class="header-section-number">1.1</span> The Nature of Science and the Scientific Method</h2>
+<p>The very semantics of the term <em>Data Science</em> make it impossible to detach it from the concept of <em>science</em>. This forces us to pause and reflect: can Data Science truly be regarded as a scientific discipline, or is it merely a fashionable commercial label? Attempting a comprehensive analysis of the nature of science is far beyond the scope of a brief introductory section; however, for the sake of intellectual honesty, we should not evade the issue. At the very least, we ought to clarify what makes an activity genuinely <em>scientific</em>.</p>
+<p>From an epistemological perspective, science cannot be defined merely as any endeavor that leads to new discoveries or expands knowledge. Scientific knowledge evolves what was once considered true has often been revised, refined, or discarded. It is therefore reasonable to assume that part of what we regard today as scientifically valid will eventually be replaced, even if we cannot foresee which part. In other words, science does not guarantee truth. What distinguishes science from other forms of inquiry is not the <em>results</em> it produces, but the <em>method</em> it employs to generate them <span class="citation" data-cites="johansson2016philosophy"><a href="#ref-johansson2016philosophy" role="doc-biblioref">[8]</a></span>. Science is better understood as an iterative mechanism—almost algorithmic in nature—that produces, tests, refines, and occasionally rejects knowledge. This is a central idea, because in essence, a data scientist does exactly that: applies the scientific method as a repeatable process of inquiry. We will return to this point shortly when discussing the <em>Hypothetico-Deductive Method</em>.</p>
+<p>With this foundation in place, it becomes easier to see why Data Science can be viewed as a generalization of Statistics. This is not a trivial claim. Statistics is undoubtedly a science specifically, a formal science, alongside logic and computer science. Formal sciences study abstract systems through reasoning rather than direct experimentation, distinguishing them from natural, social, and applied sciences. Yet classical statistics has been historically grounded in <em>inductive inference</em>: reasoning from the particular to the general. Induction allows us to infer broader conclusions from observed cases, but it carries a fundamental limitation: inductive reasoning can <em>support</em> a conclusion, but never <em>prove</em> it. This problem, famously articulated by David Hume in the 18th century and known as the <em>problem of induction</em>, arises from the logical gap between past observations and future expectations.</p>
+<p>Bertrand Russell illustrated this issue through the well-known “inductivist turkey”. A turkey observes that every morning at 9 a.m. the farmer brings food. After hundreds of consistent observations—rainy days, sunny days, warm and cold alike—the turkey confidently concludes that it will always be fed at 9 a.m. Yet on Christmas Eve, instead of being fed, it is slaughtered. A single contradictory event collapses a conclusion seemingly supported by overwhelming evidence. The lesson is clear: no amount of past observations can logically ensure the truth of a universal claim about the future. Karl Popper pushed this idea further: induction can never confirm a theory with certainty, whereas a single counterexample can refute it. The turkey’s mistake—rooted in the “turkey illusion”—was assuming regularity without understanding the underlying mechanism (the farmer’s intention).</p>
+<p>None of this implies that induction is a “bad” method. It remains essential as the generator of hypotheses and conjectures. As Klimovsky notes <span class="citation" data-cites="klimovsky1994desventuras"><a href="#ref-klimovsky1994desventuras" role="doc-biblioref">[9]</a></span>, induction may be seen as a probabilistic justification: it evaluates how strongly observations support a hypothesis, rather than certifying its truth. Put simply, science advances by combining induction (to propose hypotheses) and deduction (to test them). Deduction enables us to assess whether predictions derived from hypotheses correspond to reality. Verification, however, does not grant absolute truth; it merely confirms that a hypothesis has survived a test under certain conditions.</p>
+<p>This tension lies at the heart of Leo Breiman’s critique of classical statistics. Statistics provided the mathematical language to quantify uncertainty and draw inferences about populations from limited data, but remained bound by induction: no matter how large the sample or how robust the model, a future observation could always contradict it. Machine Learning transformed this landscape by not only inferring patterns from data but also validating predictive performance empirically. A model is no longer judged solely by how well it explains past data, but by how accurately it predicts <em>unseen</em> data. This is a qualitative shift that operationalizes the hypothetico-deductive paradigm: generating hypotheses (models) and testing them empirically against new observations in a reproducible and quantifiable way.</p>
+<p>To illustrate this in a Data Science context, consider a credit-scoring model. Classical statistics may estimate relationships between customer features and default risk through inductive inference on historical samples. A machine learning model, however, must <em>demonstrate its predictive power</em> on new customers those the model has never encountered. If the predictions fail, the model is rejected or refined. This is falsification in action, applied to data-driven decision-making.</p>
+<p>In this sense, Data Science can be expressed as <strong>Inference + Prediction</strong>, or equivalently, as <strong>Statistics + Machine Learning</strong>. It unites the inductive strength of statistics with the deductive rigor of model testing, fulfilling Breiman’s vision of a discipline that bridges explanation and prediction a modern science of learning from data. The next section will examine this duality through the lens of the <em>Hypothetico-Deductive Method</em>, the framework that ultimately solidifies the scientific character of Data Science.</p>
+</section>
+<section id="the-scientific-mindset-of-a-data-scientist" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-scientific-mindset-of-a-data-scientist"><span class="header-section-number">1.2</span> The Scientific Mindset of a Data Scientist</h2>
+<p>At the core of scientific inquiry lies a logical structure that transcends individual disciplines: the <strong>Hypothetico-Deductive Method</strong>. It provides the conceptual backbone of the scientific method, linking theoretical conjecture with empirical observation. The process begins with a hypothesis a tentative model proposed to explain observed behavior or predict its future course. From this hypothesis, one deduces empirically testable consequences. These predictions are then confronted with real data through experimentation or systematic observation. When evidence contradicts the hypothesis, it must be revised or discarded; when the evidence supports it, the hypothesis gains provisional credibility, though never definitive truth.</p>
+<p>This dynamic interplay between theoretical formulation, deduction, and empirical scrutiny defines the essence of scientific work. What grants scientific legitimacy to a model is not its mathematical elegance or computational sophistication, but its <strong>capacity to generate falsifiable predictions</strong>. The scientific method is therefore inherently self-correcting: each cycle of hypothesizing, testing, and refining moves knowledge closer to truth while acknowledging that truth remains an ever-distant horizon.</p>
+<p>Traditional inferential statistics implements this logic only partially through hypothesis testing. A null hypothesis is proposed, its probabilistic implications are derived, and sample data are used to evaluate whether they justify its rejection. Yet this remains predominantly an inductive process, generalizing from finite observations into probabilistic claims about broader populations. Moreover, statistical validation is typically static once the data are gathered, the hypothesis is evaluated solely in that context, rather than through iterative confrontation with new evidence.</p>
+<p>Machine learning, by contrast, operationalizes the deductive stage of scientific reasoning through <strong>predictive validation</strong>. Each model can be viewed as a hypothesis about the functional relationship between predictors and outcomes. Training a model corresponds to formulating the hypothesis; evaluating it on unseen data corresponds to testing its empirical consequences. Performance metrics quantify how well the model withstands empirical scrutiny, and failures become informative guiding reformulation or replacement of the underlying hypothesis.</p>
+<p>This perspective turns Data Science into a <strong>practical enactment of the Hypothetico-Deductive Method</strong>. It combines inductive discovery of structure within data with deductive testing of the predictive consequences of that structure. More importantly, it enables Data Science to progress from mere correlation to <strong>genuine explanation</strong>, seeking models that capture mechanisms rather than patterns alone.</p>
+<p>Consider the problem of <strong>customer churn</strong> in retail. A predictive model might accurately identify customers at risk of leaving based solely on behavioral correlations a purely inductive exercise. But if the goal is to determine whether a discount campaign will <em>reduce</em> churn, prediction alone is insufficient. The data scientist must investigate—and, when possible, formalize—<strong>causal models</strong> capturing how interventions alter outcomes. Prediction answers <em>who</em> is likely to churn; causality answers <em>why</em> and <em>what we can do about it</em>.</p>
+<p>Under the Hypothetico-Deductive paradigm, this iterative cycle can be summarized visually, as shown in <a href="#fig-hd_algorithm" class="quarto-xref">Figure&nbsp;1</a>, and is typically composed of the following stages:</p>
+<ul>
+<li><strong>Systematic observation</strong> of a phenomenon</li>
+<li><strong>Formulation of hypotheses</strong> or models to explain observed patterns</li>
+<li><strong>Deduction of testable predictions</strong> grounded in those hypotheses</li>
+<li><strong>Empirical evaluation</strong> of predictions via new data</li>
+<li><strong>Revision or replacement</strong> of hypotheses based on the evidence collected</li>
+</ul>
+<div class="cell" data-fig-width="5" data-fig-height="7" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-hd_algorithm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hd_algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-hd_algorithm">graph TB
+    A[Observations&lt;br/&gt;&amp;&lt;br/&gt;Patterns in Nature]
+    C[Hypothesis]
+    D[Testable Predictions]
+    E[Experimentation&lt;br/&gt;&amp;&lt;br/&gt;Data Collection]
+    F{Analysis of Results&lt;br/&gt;&amp;&lt;br/&gt;Evaluation}
+    G[Hypothesis Supported]
+    H[Hypothesis Revised or Rejected]
+    T[Theory Development&lt;br/&gt;&amp;&lt;br/&gt;Models]
+    Q[New Questions&lt;br/&gt;&amp;&lt;br/&gt;Anomalies]
+    J[Revision or New Hypothesis]
+
+    A --&gt;|Induction| C
+    C --&gt;|Deduction| D
+    D --&gt; E
+    E --&gt; F
+    F --&gt;|Corroboration| G
+    F --&gt;|Falsification| H
+    G --&gt; T
+    T --&gt; Q
+    Q --&gt;|New Observations| A
+    H --&gt; J
+    J --&gt; C
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hd_algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The hypothetico-deductive method as an iterative loop: observations motivate hypotheses (induction); hypotheses yield testable predictions (deduction); empirical results either support or challenge the hypothesis, leading to theory formation or revision and ultimately to new questions that restart the process.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Viewed from this angle, the role of a data scientist extends far beyond executing algorithms or statistical routines. It is the <strong>iterative application of the scientific method</strong> across diverse business contexts generating hypotheses, building predictive and causal models, confronting them with evidence, and allowing data to arbitrate which explanations survive. Data Science thus emerges not merely as a technical discipline, but as the <strong>contemporary expression of scientific thinking</strong> applied to data-rich environments, where distinguishing correlation from causation and prediction from explanation defines true professional excellence.</p>
+</section>
+<section id="data-science-as-a-strategic-value-engine" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="data-science-as-a-strategic-value-engine"><span class="header-section-number">1.3</span> Data Science as a Strategic Value Engine</h2>
+<p>At this point, it is crucial to emphasize a key principle that often gets overlooked: <strong>Data Science is not a goal in itself</strong>. No matter how sophisticated the methodologies or how advanced the machine learning models, they are worthless if they do not generate real and measurable impact. The true purpose of Data Science is to <strong>inform and improve strategic decisions</strong> transforming data into outcomes that advance organizational goals.</p>
+<p>Data-driven decision making empowers organizations to optimize operations, personalize customer experiences, identify risks proactively, and maintain a competitive advantage. As Kozyrkov highlights, outstanding data analysts ensure that their work is focused on solving the <strong>right business problems</strong>, not simply producing technically impressive outputs <span class="citation" data-cites="kozyrkov2018great"><a href="#ref-kozyrkov2018great" role="doc-biblioref">[10]</a></span>.</p>
+<p>This underscores a critical truth: technical excellence without business alignment leads to solutions that may appear successful internally but <strong>fail to influence decisions or create value</strong>. The impact of a model is not measured solely by statistical accuracy or computational ingenuity, but by the extent to which it <strong>changes what the organization does</strong>.</p>
+<p>From a decision-theoretic perspective, integrating Data Science into strategy enables measurable improvements not only in profitability or utility, but also in <strong>decision velocity</strong>. Automated analytical pipelines allow organizations to deploy models directly into operational environments continuously monitoring performance, adapting to new data, and discarding approaches that no longer deliver value. This creates a self-correcting loop where models are evaluated and refined over time, accelerating the pathway from insight to action.</p>
+<p>Consider, for example, the case of <strong>customer churn</strong> in retail. Without Data Science, retention strategies typically rely on intuition or broad marketing campaigns often costly and ineffective. In contrast, a churn prediction model can <strong>identify customers most at risk</strong>, enabling targeted interventions such as personalized offers or loyalty programs. If the strategy does not reduce churn among the targeted segment, performance monitoring mechanisms reveal the failure, prompting refinement or alternative plans. Here, data does not merely describe behavior it <strong>actively shapes business outcomes</strong>.</p>
+<p>Viewed through this lens, Data Science becomes a <strong>strategic value engine</strong>: a discipline that leverages scientific reasoning, computational tools, and domain expertise to drive decisions that matter. This synthesis—model-driven insight aligned with real-world objectives—ensures that Data Science fulfills its true mission: transforming information into impact.</p>
+</section>
+<section id="the-fundamental-constituents-of-data-science" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="the-fundamental-constituents-of-data-science"><span class="header-section-number">1.4</span> The Fundamental Constituents of Data Science</h2>
+<p>Despite its rapid expansion and increasing visibility, Data Science is often portrayed as a discipline defined by an ever-growing collection of tools, frameworks, and technological trends. This perception can be misleading. While modern practice certainly involves a rich ecosystem of software and computational infrastructure, the scientific core of Data Science rests on a far more compact and principled foundation.</p>
+<p>Approaching the field from a first-principles perspective, Data Science can be understood as a systematic framework for reasoning under uncertainty using data. From this viewpoint, <strong>Probability and Statistics emerge as its fundamental constituents</strong>. Probability provides the language for modeling uncertainty, randomness, and variability, while Statistics supplies the methodological apparatus for learning from data, drawing conclusions, and assessing the reliability of those conclusions. Together, they form the conceptual backbone that allows data-driven reasoning to be both rigorous and reproducible.</p>
+<p>Programming, algorithms, and computational tools play an essential enabling role, but they do not define the discipline by themselves. Rather, they serve as vehicles through which probabilistic models are simulated, statistical procedures are implemented, and empirical hypotheses are tested. Without a solid grounding in Probability and Statistics, such tools risk becoming opaque black boxes; with it, they become transparent instruments of scientific inquiry.</p>
+<p>This book is structured accordingly. The part <strong>Probability Foundations and Stochastic Processes</strong> develops the formal framework needed to reason about randomness and uncertainty. Beginning with the axioms and basic principles of probability, the discussion progresses through random variables, expectation, variance, and classical probability distributions. These concepts are then extended to stochastic processes, providing a natural language for modeling temporal and dynamic phenomena. Simulation techniques, with particular emphasis on Monte Carlo methods, are introduced as a bridge between theory and computation, allowing probabilistic models to be explored even when analytical solutions are intractable. The part concludes by introducing elements of information theory, offering a quantitative perspective on uncertainty, information, and randomness.</p>
+<p>Building on this foundation, the part <strong>Statistical Inference and Beyond</strong> addresses the central question of how knowledge can be extracted from data. Core ideas of statistical reasoning are developed through parameter estimation, hypothesis testing, and analysis of variance, emphasizing interpretation, assumptions, and uncertainty quantification. Bayesian statistics is introduced as a coherent probabilistic framework for inference, highlighting the role of prior information and posterior updating. Additional chapters extend classical inference to structured data settings, including time series analysis and resampling methods, which illustrate how statistical reasoning adapts to dependence, limited data, and complex empirical scenarios.</p>
+<p>Across both parts, computational implementation in Python and R is used not merely as a practical convenience, but as an integral component of understanding. Algorithms, simulations, and numerical experiments reinforce theoretical ideas and reflect the way modern statistical reasoning is conducted in practice.</p>
+<p>Taken together, these sections articulate a unifying message: <strong>Data Science is fundamentally a probabilistic and statistical discipline</strong>, augmented by computation. By grounding the reader in these principles, the book aims to cultivate durable understanding rather than transient technical proficiency—equipping readers with conceptual tools that remain valid across domains, applications, and evolving technological landscapes.</p>
+<p>Yet probabilistic reasoning and statistical inference, powerful as they are in theory, rarely remain confined to abstract formulation. In contemporary Data Science, models are simulated, estimators are computed, and empirical validation is carried out through algorithmic procedures executed within computational environments. Computation is therefore not an external supplement to probabilistic and statistical reasoning, but the medium through which these ideas become operational. To reason rigorously under uncertainty in modern settings is, inevitably, to reason computationally. The following sections introduce the programming languages that will serve as our instruments of exploration and experimentation throughout this book.</p>
+</section>
+<section id="essential-concepts-of-computation" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="essential-concepts-of-computation"><span class="header-section-number">1.5</span> Essential Concepts of Computation</h2>
+<p>The term <strong>computation</strong> finds its roots in the Latin word <em>computatio</em>, which means <em>to think or calculate together</em>. This etymology captures, in a remarkably precise way, the essence of what occurs within a computer: a coordinated process of structured reasoning and calculation. At its core, computation can be understood as the systematic transformation of information—a process that inherently involves inputs, a well-defined procedure, and resulting outputs. This fundamental flow constitutes the conceptual bedrock upon which all computing systems are built (<a href="#fig-computational-process" class="quarto-xref">Figure&nbsp;2</a>).</p>
+<div class="cell" data-fig-width="5" data-fig-height="0.55" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-computational-process" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-computational-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-computational-process">flowchart LR
+    A["Input Data"] --&gt; B["Processing / Algorithm"]
+    B --&gt; C["Output / Result"]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-computational-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The fundamental process of computation, transforming inputs into outputs through a defined procedure.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Computation, however, should not be conflated with the physical device we interact with on a daily basis. The machine itself is merely the vessel; the true essence of computation resides in the logical structures that animate it. Every computational system is fundamentally composed of two symbiotic components: <strong>hardware</strong> and <strong>software</strong> <span class="citation" data-cites="savitch2018problem"><a href="#ref-savitch2018problem" role="doc-biblioref">[11]</a></span>. Hardware encompasses the physical substrate—input devices such as keyboards and sensors, the central processing unit (CPU) responsible for executing instructions, memory for storing data, and output devices such as displays and printers. This tangible infrastructure, while indispensable, serves primarily as an instrument: a powerful assistant designed to extend human capabilities by performing calculations at scales and speeds unattainable by human cognition alone, thereby fulfilling the original spirit of <em>computatio</em>.</p>
+<p>The bridge between human intention and machine execution is built by software. There exists a crucial distinction between <em>what</em> we aim to accomplish and <em>how</em> we instruct the computer to accomplish it. This distinction is formalized through the notion of an <strong>algorithm</strong>: a finite, unambiguous sequence of well-defined steps that transforms inputs into outputs. Algorithms are abstract entities. They are independent of any particular programming language and can be viewed as logical blueprints—descriptions of <em>what must be done</em>, separate from the specific means by which those instructions are communicated to a machine.</p>
+<p>To execute an algorithm, however, we must express it in a form the computer can process. Since computers operate natively on binary representations—sequences of ones and zeros—humans face a fundamental choice: communicate directly in this machine-level language or rely on translation mechanisms. This situation closely mirrors human linguistic communication. One may choose to translate a text entirely into another language before delivering it, or instead rely on an interpreter who translates speech in real time as it is spoken.</p>
+<p>This analogy provides an intuitive lens through which to understand two dominant approaches in programming languages. In <strong>compiled languages</strong>, the entire program is translated in advance into machine code before execution, much like a written document that is fully translated before being read. In <strong>interpreted languages</strong>, the program is translated and executed incrementally, line by line, analogous to a live interpreter who conveys meaning sentence by sentence during a conversation. Both approaches serve the same ultimate goal—enabling communication between human logic and machine execution—but they differ fundamentally in <em>when</em> and <em>how</em> this translation occurs.</p>
+<p>Programming languages span a wide spectrum, from <strong>low-level languages</strong> that closely resemble machine instructions to <strong>high-level languages</strong> designed for human readability and expressiveness. In addition to their translation mechanisms, languages often embody different <strong>programming paradigms</strong>, which reflect distinct ways of structuring and reasoning about programs. <strong>Declarative paradigms</strong> focus on describing <em>what</em> result is desired (as in SQL), while <strong>procedural paradigms</strong> emphasize <em>how</em> to achieve that result through explicit sequences of operations (as in C). Many modern languages, including Python, are <strong>multiparadigm</strong>, supporting multiple styles and allowing developers to select the most appropriate abstraction for a given problem.</p>
+<p>A coherent collection of algorithms, organized into a unified set of instructions for a computer, forms a <strong>program</strong>. Programs are typically stored as <strong>scripts</strong>—plain text files containing source code. To facilitate the development of such programs, practitioners rely on <strong>Integrated Development Environments (IDEs)</strong>, which provide advanced editors, debugging tools, documentation systems, and workflow automation. These environments are designed not merely to accelerate coding, but to support reasoning, experimentation, and iterative refinement. Within this broader landscape of computational systems and languages, certain environments have become particularly influential in modern Data Science.</p>
+<section id="python-a-language-for-thought-and-computation" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="python-a-language-for-thought-and-computation"><span class="header-section-number">1.5.1</span> <code>Python</code>: A Language for Thought and Computation</h3>
+<p>Python has become one of the defining programming languages of modern Data Science. Its prominence is not accidental. By combining readability, expressive power, and a vast open-source ecosystem, Python provides a computational environment capable of supporting tasks that range from data exploration and modeling to large-scale automation. Libraries such as NumPy, pandas, Matplotlib, Scikit-learn, TensorFlow, and PyTorch have consolidated its role as a central platform for scientific computing and machine learning.</p>
+<p>Beyond its technical capabilities, Python embodies a distinctive philosophy of computation. It privileges clarity over cleverness, simplicity over unnecessary complexity, and collaboration over isolation. Code is not merely written to be executed, but to be read, understood, and refined—an intellectual stance that has shaped both the language’s design and the global community that sustains it.</p>
+<p>Python is a high-level, interpreted, general-purpose language designed with an emphasis on conceptual transparency. As a multiparadigm language, it supports imperative, object-oriented, and functional styles of programming, allowing different modes of abstraction to coexist within a coherent structure. These guiding principles are succinctly expressed in <em>The Zen of Python</em>, which can be revealed directly by executing the following fragment of code:</p>
+<div id="173a201e" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Zen of Python</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> this</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!</code></pre>
+</div>
+</div>
+<section id="python-scripting-and-modules-anaconda-project-and-jupyter-notebooks" class="level4" data-number="1.5.1.1">
+<h4 data-number="1.5.1.1" class="anchored" data-anchor-id="python-scripting-and-modules-anaconda-project-and-jupyter-notebooks"><span class="header-section-number">1.5.1.1</span> Python Scripting and Modules, Anaconda Project and Jupyter Notebooks</h4>
+<p>As we continue our journey into computational thinking, we now turn to the practical mechanisms through which algorithms are brought into execution. Building upon the notion of scripts as structured collections of instructions, we focus specifically on <strong>Python scripts</strong>—typically identified by their <code>.py</code> extension—which constitute the fundamental units of Python-based computation.</p>
+<p>One of Python’s defining strengths lies in the flexibility of its execution model. A script may be executed directly from the command line on any system where Python is installed, or developed and run within more integrated environments. Platforms such as Spyder, Google Colab, and—most notably for this book—Jupyter provide interactive interfaces that facilitate experimentation, visualization, and iterative refinement. At the same time, it is important to recognize that a Python script ultimately remains a plain text file, requiring no specialized infrastructure beyond the interpreter itself. This simplicity reflects the broader design philosophy of the language: accessibility without sacrificing expressive power.</p>
+<p>Throughout this book, all code examples, scripts, and Jupyter notebooks are made available in the accompanying GitHub repository. Readers are encouraged to explore the materials and experiment actively as they progress. Such engagement is not merely supplementary; it forms an essential component of developing fluency in computational thinking with Python.</p>
+</section>
+<section id="the-jupyter-ecosystem-interactive-computing-reimagined" class="level4" data-number="1.5.1.2">
+<h4 data-number="1.5.1.2" class="anchored" data-anchor-id="the-jupyter-ecosystem-interactive-computing-reimagined"><span class="header-section-number">1.5.1.2</span> The Jupyter Ecosystem: Interactive Computing Reimagined</h4>
+<p>For this book, we adopt <em>Jupyter</em> as the primary environment for interactive work, given its ability to integrate code, exposition, and visualization within a single computational document. Rather than functioning merely as an editor, Jupyter enables the construction of executable narratives—documents in which mathematical reasoning, algorithmic implementation, and graphical representation coexist in a unified structure.</p>
+<p>Originating from IPython in 2014 under the leadership of Fernando Pérez, the Jupyter Project evolved into a language-agnostic platform for interactive computing. Its name—derived from <strong>Ju</strong>lia, <strong>Py</strong>thon, and <strong>R</strong>—symbolizes its interdisciplinary orientation and its support for scientific workflows across domains. This triad reflects not only technical versatility, but also a broader commitment to open standards and reproducible research.</p>
+<p>The ecosystem encompasses several complementary components. Jupyter Notebook introduced the paradigm of interactive computational documents; JupyterLab extended this model into a more flexible, modular interface; and JupyterHub enabled scalable, multi-user deployments. Together, these tools redefined how computation can be documented, shared, and reproduced, aligning naturally with the empirical and iterative character of modern Data Science.</p>
+</section>
+<section id="python-modules-the-architecture-of-reusable-code" class="level4" data-number="1.5.1.3">
+<h4 data-number="1.5.1.3" class="anchored" data-anchor-id="python-modules-the-architecture-of-reusable-code"><span class="header-section-number">1.5.1.3</span> Python Modules: The Architecture of Reusable Code</h4>
+<p>In Python, the notion of a <strong>module</strong> extends code organization beyond simple file management into a structured architectural principle. A module is a file containing Python definitions—functions, classes, variables—as well as executable statements that may run when the module is imported. By grouping related functionality within a coherent unit, modules allow components of a program to remain logically connected while being reusable across different contexts or projects.</p>
+<p>Modular programming imposes structure on complexity. Instead of accumulating fragmented scripts, developers construct systems composed of well-defined, self-contained units. This approach enhances clarity, maintainability, and extensibility, transforming code into an organized body of reusable knowledge. Once defined, the abstractions encapsulated within a module can be invoked consistently, reducing redundancy and reinforcing conceptual coherence.</p>
+<p>Modules also provide a disciplined mechanism for managing namespaces. Each module establishes its own scope, minimizing naming conflicts and preserving semantic clarity. At the same time, they define explicit boundaries between implementation and interface: internal details remain encapsulated, while selected elements are exposed for external use. This balance between abstraction and accessibility underlies scalable software design and reflects one of Python’s most enduring strengths in supporting structured, collaborative development.</p>
+</section>
+<section id="the-installation-pathway-a-note-on-getting-started" class="level4" data-number="1.5.1.4">
+<h4 data-number="1.5.1.4" class="anchored" data-anchor-id="the-installation-pathway-a-note-on-getting-started"><span class="header-section-number">1.5.1.4</span> The Installation Pathway: A Note on Getting Started</h4>
+<p>While this section aims to illuminate the conceptual landscape of Python development tools, we intentionally omit detailed installation instructions for Python, Anaconda, and Jupyter. The digital landscape offers a vast repository of tutorials and installation guides that evolve more rapidly than any printed text could capture.</p>
+<p>We encourage readers to visit the official sources for these foundational tools:</p>
+<ul>
+<li><a href="https://www.python.org/">Python</a> - The core programming language</li>
+<li><a href="https://www.anaconda.com/">Anaconda</a> - A comprehensive distribution bundling Python with data science libraries</li>
+<li><a href="https://jupyter.org/">Jupyter</a> - The interactive computing platform</li>
+</ul>
+<p>We recognize that setup processes can sometimes test one’s patience, but we assure you: this initial hurdle requires nothing more than resilience and careful following of official documentation. The temporary challenge of installation pales in comparison to the powerful capabilities these tools unlock.</p>
+</section>
+<section id="the-python-universe-a-glimpse-at-the-ecosystem" class="level4" data-number="1.5.1.5">
+<h4 data-number="1.5.1.5" class="anchored" data-anchor-id="the-python-universe-a-glimpse-at-the-ecosystem"><span class="header-section-number">1.5.1.5</span> The Python Universe: A Glimpse at the Ecosystem</h4>
+<p>Python’s open-source character has fostered a vast and collaborative ecosystem of specialized libraries that extend the language far beyond its core functionality. While only a small selection can be mentioned here, the following tools illustrate the breadth and depth of the environment in which modern Data Science operates:</p>
+<ul>
+<li><a href="https://pandas.pydata.org/"><strong>Pandas</strong></a> — A central library for data manipulation and analysis, built around the intuitive and powerful <code>DataFrame</code> structure.</li>
+<li><a href="https://numpy.org/"><strong>NumPy</strong></a> — The foundation of numerical computing in Python, providing efficient multidimensional array objects and vectorized operations.</li>
+<li><a href="https://matplotlib.org/"><strong>Matplotlib</strong></a> — A widely used visualization library for generating high-quality static and interactive plots.</li>
+<li><a href="https://scipy.org/"><strong>SciPy</strong></a> — A scientific computing library built upon NumPy, offering tools for optimization, integration, signal processing, statistics, and linear algebra.</li>
+<li><a href="https://scikit-learn.org/stable/"><strong>Scikit-Learn</strong></a> — A machine learning library featuring consistent interfaces for classification, regression, clustering, and model evaluation.</li>
+<li><a href="https://www.tensorflow.org/"><strong>TensorFlow</strong></a> and <a href="https://pytorch.org/"><strong>PyTorch</strong></a> — Frameworks for large-scale numerical computation and deep learning.</li>
+<li><a href="https://keras.io/"><strong>Keras</strong></a> — A high-level neural network API integrated with TensorFlow, designed to simplify model construction and experimentation.</li>
+</ul>
+<p>Complementing these libraries, Python’s standard library modules—such as <code>math</code> and <code>cmath</code>—provide foundational mathematical functionality directly within the language. Together, these tools form a coherent computational ecosystem through which probabilistic, statistical, and machine learning concepts can be implemented and explored in practice.</p>
+</section>
+</section>
+<section id="r-a-language-for-statistical-thinking" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="r-a-language-for-statistical-thinking"><span class="header-section-number">1.5.2</span> <code>R</code>: A Language for Statistical Thinking</h3>
+<p>Alongside Python, <code>R</code> will serve as a primary computational instrument throughout this book. While Python provides a versatile, general-purpose framework for algorithmic implementation, R contributes a tradition deeply rooted in statistical reasoning and analytical methodology. Together, these languages offer complementary perspectives for exploring Data Science from both computational and inferential standpoints.</p>
+<p>R has played a central role in the evolution of modern statistical practice. Created by statisticians for statisticians, it embodies a philosophy that places modeling, inference, and data analysis at the core of its design. As a result, R provides a natural environment for statistical modeling, experimental design, hypothesis testing, and exploratory data analysis across domains such as epidemiology, social sciences, finance, and bioinformatics.</p>
+<p>A defining strength of R lies in its highly specialized ecosystem of packages. The Comprehensive R Archive Network (CRAN) hosts a vast repository of methodologies developed by researchers and domain experts worldwide. Packages such as <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>ggplot2</strong>, <strong>caret</strong>, and <strong>tidymodels</strong> have shaped a coherent workflow for data manipulation, visualization, and predictive modeling. At the same time, tools like <strong>R Markdown</strong> and <strong>Shiny</strong> extend R’s capabilities into reproducible reporting and interactive applications, reinforcing its alignment with scientific communication and transparency.</p>
+<p>Where Python emphasizes general-purpose expressiveness, R excels at translating statistical abstractions into concise and semantically meaningful code. Rather than positioning one language above the other, this book treats them as complementary instruments. Python and R offer distinct yet overlapping pathways for implementing probabilistic models, performing inference, and communicating results—enriching the analytical toolkit available to the modern data scientist.</p>
+<section id="why-r-matters-in-modern-data-science" class="level4" data-number="1.5.2.1">
+<h4 data-number="1.5.2.1" class="anchored" data-anchor-id="why-r-matters-in-modern-data-science"><span class="header-section-number">1.5.2.1</span> Why R Matters in Modern Data Science</h4>
+<p>R occupies a distinctive position in modern Data Science—not merely as a programming language, but as a conceptual environment shaped by decades of statistical thought. Emerging from academic research and sustained by a vibrant community of practitioners, R was designed from the outset to model variation, quantify uncertainty, and articulate analytical ideas with precision. Unlike general-purpose languages that later incorporated data-analytic features, R integrates methodology and implementation at its core. This orientation ensures its continued relevance in disciplines where inference, interpretability, and methodological rigor remain central.</p>
+<p>As the field has expanded to encompass machine learning, deep learning, and large-scale data engineering, R retains its importance by preserving a scientific perspective rooted in statistical reasoning. Its syntax encourages analysts to think in terms of distributions, sampling mechanisms, and model-building strategies—reflecting the principle that data emerge from underlying generative processes. The language’s vectorized structure, functional programming patterns, and extensive statistical libraries allow complex analytical workflows to be expressed concisely, often revealing the structural logic of a problem with clarity.</p>
+<p>R’s ecosystem further reinforces its significance. CRAN serves as a continually evolving archive of domain-specific methodologies, frequently providing early implementations of newly developed techniques. From Bayesian computation and causal inference to survival analysis, spatial statistics, and high-dimensional modeling, R functions as a living interface between theoretical innovation and applied practice. Classical statistical tools coexist with contemporary analytical paradigms, forming a cohesive environment grounded in methodological depth.</p>
+<p>Equally important is R’s influence on the culture of reproducibility in Data Science. Tools such as R Markdown integrated computation, narrative, and visualization within a unified workflow, reshaping how analytical results are documented and communicated. Although similar paradigms have since emerged elsewhere, they remain deeply embedded in R’s identity. In this sense, R supports not only data manipulation, but the full arc of scientific inquiry—from exploration and modeling to interpretation and exposition.</p>
+<p>For these reasons, R remains a mature and intellectually grounded analytical environment. In an era increasingly defined by scale and automation, it sustains a perspective in which models are not merely computational artifacts, but structured representations of uncertainty, evidence, and underlying processes.</p>
+</section>
+<section id="the-statistical-philosophy-embedded-in-the-language" class="level4" data-number="1.5.2.2">
+<h4 data-number="1.5.2.2" class="anchored" data-anchor-id="the-statistical-philosophy-embedded-in-the-language"><span class="header-section-number">1.5.2.2</span> The Statistical Philosophy Embedded in the Language</h4>
+<p>R is more than a programming language; it embodies a distinct statistical worldview. Emerging from the S language tradition, R was designed to reflect how statisticians conceptualize data, uncertainty, and inference. Rather than layering statistical procedures onto a generic computational substrate, R integrates statistical reasoning directly into its structure. As a result, analytical ideas can be expressed in a form that closely mirrors their conceptual foundations, making the language feel like a natural extension of statistical thought.</p>
+<p>Central to this philosophy is the recognition that data represent realizations of underlying generative processes. R encourages analysts to think in terms of distributions, sampling mechanisms, and model assumptions, reinforcing the perspective that observed values arise from structured stochastic systems. A dataset is not merely a static collection of numbers, but one possible outcome of a probabilistic mechanism. This orientation influences how hypotheses are formulated, models are specified, and results are interpreted, consistently foregrounding the role of uncertainty in empirical analysis.</p>
+<p>R’s functional tendencies further reflect statistical practice. Analytical workflows often consist of applying well-defined transformations to data, producing new objects that serve as inputs to subsequent procedures. In R, this logic is naturally expressed through compositions of functions, aligning computation with the formal structure of estimation and modeling. An estimate <span class="math inline">\(\hat{\theta}\)</span> or a fitted model <span class="math inline">\(f(x)\)</span> is thus understood as the output of a reproducible mapping applied to observed data, rather than the consequence of imperative state manipulation. This emphasis on transformation supports clarity, traceability, and methodological coherence.</p>
+<p>Vectorization provides another bridge between statistical notation and computational expression. Many statistical operations—computing means, evaluating likelihoods, applying link functions—act simultaneously across entire samples. R enables such operations to be articulated directly at the vector level, minimizing the gap between mathematical representation, such as <span class="math inline">\(x = (x_1, x_2, \ldots, x_n)\)</span>, and executable code. This design reduces friction between theory and implementation, allowing statistical ideas to retain their structural integrity in computational form.</p>
+<p>Perhaps the clearest manifestation of R’s statistical philosophy lies in its formula interface. Expressions such as <span class="math inline">\(y \sim x_1 + x_2\)</span> encode relationships symbolically, closely resembling the notation used in textbooks and research articles. By permitting interactions, transformations, and complex model structures to be specified in this declarative manner, R preserves the conceptual primacy of models as representations of theoretical relationships among variables. Computation becomes the vehicle for evaluating these relationships, not their substitute.</p>
+<p>Taken together, these features reveal a language shaped by a sustained commitment to statistical reasoning. R does not merely implement statistical techniques; it reflects their internal logic. In doing so, it supports a mode of analysis in which computation clarifies rather than obscures the conceptual structure of inference, maintaining a close alignment between theory, method, and implementation.</p>
+</section>
+<section id="a-brief-history-of-r-and-its-relationship-to-s" class="level4" data-number="1.5.2.3">
+<h4 data-number="1.5.2.3" class="anchored" data-anchor-id="a-brief-history-of-r-and-its-relationship-to-s"><span class="header-section-number">1.5.2.3</span> A Brief History of R and Its Relationship to S</h4>
+<p>The origins of R trace back to the S programming language, developed at Bell Labs in the 1970s. Conceived as a response to the growing demands of statistical computation, S provided researchers with a flexible and interactive environment in which analytical ideas could be explored without the constraints of low-level programming. Designed by John Chambers and colleagues, S embodied a philosophy in which the language functioned as a medium for statistical reasoning rather than merely a tool for instructing machines. This intellectual orientation would decisively shape the evolution of R.</p>
+<p>As S matured, it gave rise to S-PLUS, a commercial implementation that extended its reach. However, the proprietary nature of S-PLUS limited the openness and collaborative experimentation that increasingly characterized academic computing. In the early 1990s, Ross Ihaka and Robert Gentleman at the University of Auckland developed R as an open-source reimplementation inspired by S. Their aim was not only technical replication, but the democratization of S’s underlying philosophy. The name “R” simultaneously referenced its creators and acknowledged its conceptual roots in S.</p>
+<p>R preserved much of S’s syntax and modeling framework while introducing innovations that would transform statistical computing. By adopting the GNU General Public License, R enabled users to inspect, modify, and extend its source code. This openness fostered a culture of collective development, allowing researchers to implement new methodologies rapidly and distribute them as packages. Statistical innovation and computational infrastructure became tightly coupled, accelerating the dissemination of emerging ideas.</p>
+<p>The establishment of CRAN—the Comprehensive R Archive Network—marked a critical institutional development. Modeled in spirit after CTAN in the TeX ecosystem, CRAN provided a structured and curated repository for packages, enforcing standards of documentation, testing, and reproducibility. It became a central mechanism through which methodological advances could be shared reliably and systematically, reinforcing R’s role as a living archive of statistical practice.</p>
+<p>Over time, R evolved beyond its origins. New object-oriented systems, performance improvements, and influential frameworks—most notably the tidyverse—expanded its scope while preserving its statistical foundation. Although deeply indebted to S, R developed an identity shaped by open collaboration and methodological breadth, extending from classical inference to modern data analysis, visualization, and reproducible research.</p>
+<p>The relationship between R and S is therefore best understood as intellectual continuity rather than simple inheritance. R absorbed the modeling philosophy and expressive syntax of S, yet its open-source evolution allowed it to grow into a far more expansive and dynamic ecosystem. It stands both as a continuation of Bell Labs’ pioneering work and as an example of how a community-driven approach can reshape the computational tools of a discipline.</p>
+</section>
+<section id="the-r-ecosystem" class="level4" data-number="1.5.2.4">
+<h4 data-number="1.5.2.4" class="anchored" data-anchor-id="the-r-ecosystem"><span class="header-section-number">1.5.2.4</span> The R Ecosystem</h4>
+<p>The R ecosystem is one of the language’s defining achievements: a vast and evolving landscape of tools, libraries, and frameworks that extend far beyond the core interpreter. Rather than a monolithic system, it is a constellation of interconnected efforts—some community-driven, some domain-specific, some rooted in long academic traditions, others emerging from contemporary data workflows. Together, they form an environment in which methodological innovation, reproducibility, and practical application coexist within a coherent structure.</p>
+<p>At its center stands CRAN, the Comprehensive R Archive Network. More than a repository, CRAN functions as the institutional backbone of the R community. Its submission standards, automated build checks, and transparent review processes promote reliability and consistency across contributed packages. This infrastructure enables researchers and practitioners to disseminate new statistical methodologies rapidly, transforming CRAN into a continuously updated archive of executable statistical knowledge. From classical inference to modern approaches in causal modeling, machine learning, spatial statistics, and time-series analysis, CRAN captures the breadth of contemporary methodology in operational form.</p>
+<p>Complementing CRAN is Bioconductor, a specialized ecosystem dedicated to bioinformatics and computational biology. Developed to address the analytical demands of genomics and high-throughput experimentation, Bioconductor exemplifies how domain expertise can shape computational infrastructure. Its emphasis on standardized data structures, annotation frameworks, and reproducible workflows has enabled sophisticated analysis of genomic and transcriptomic data. The integration of Bioconductor within the broader R environment reinforces the language’s role as a platform for domain-specific scientific research.</p>
+<p>Another influential strand within the ecosystem is the tidyverse, which articulates a coherent grammar for data manipulation and visualization. Beyond a collection of packages, it represents a philosophy of workflow design grounded in readability, functional composition, and conceptual consistency. By providing shared interfaces and unified design principles, the tidyverse has shaped modern analytical practice while remaining compatible with base R systems. Its influence illustrates R’s capacity to evolve through dialogue rather than replacement.</p>
+<p>The ecosystem also extends into areas that reflect the diversity of contemporary Data Science. Packages such as <code>data.table</code> emphasize high-performance data manipulation, offering efficiency and scalability suited to large datasets. The <code>rmarkdown</code> and <code>quarto</code> frameworks integrate code, narrative, and visualization, strengthening the culture of reproducible research. Tools like <code>shiny</code> and <code>plumber</code> support interactive applications and APIs, expanding R’s presence into production and decision-support contexts. Across domains—from econometrics and pharmacometrics to geospatial modeling and Bayesian computation—specialized sub-ecosystems continue to emerge, each grounded in distinct methodological traditions.</p>
+<p>Taken together, these elements reveal an ecosystem defined less by uniformity than by pluralism. R accommodates multiple paradigms—procedural, functional, object-oriented, and declarative—because its community reflects multiple ways of reasoning about data. Its strength lies in this openness: the capacity to incorporate new ideas while preserving methodological continuity, and the shared commitment to transparency, rigor, and reproducibility. The R ecosystem is therefore not merely a collection of packages, but an evolving collaborative structure that mirrors the intellectual diversity of modern statistical practice.</p>
+<section id="rstudio-an-integrated-environment-for-statistical-computing" class="level5" data-number="1.5.2.4.1">
+<h5 data-number="1.5.2.4.1" class="anchored" data-anchor-id="rstudio-an-integrated-environment-for-statistical-computing"><span class="header-section-number">1.5.2.4.1</span> RStudio: An Integrated Environment for Statistical Computing</h5>
+<p>Among the tools that support the R ecosystem, <strong>RStudio</strong> has become the most widely adopted integrated development environment for statistical computing and data analysis. Developed by Posit (formerly RStudio, PBC), it provides a unified workspace designed to facilitate productivity, organization, and analytical clarity. More than a simple editor or console interface, RStudio reflects the workflows and methodological habits of statisticians and data analysts.</p>
+<p>The environment integrates several core components: a script editor, an interactive R console, plotting panes, project management utilities, package development tools, and native support for R Markdown, Quarto, and Shiny. This convergence allows code, visualizations, and documentation to coexist within a coherent interface. Such integration reinforces the idea that analysis is simultaneously computational and explanatory. The workflow it encourages—writing code, inspecting results, refining assumptions, adjusting models—mirrors the iterative structure of scientific inquiry and exploratory data analysis.</p>
+<p>RStudio also plays a significant role in promoting reproducible research. Through seamless integration with literate programming tools, it enables narrative exposition and computational output to remain closely aligned. This capacity has made RStudio a central instrument in academic research, teaching, and applied analytics. Across domains—from bioinformatics and econometrics to environmental modeling and predictive analytics—it provides a stable and expressive environment in which statistical reasoning can be implemented, documented, and communicated effectively.</p>
+</section>
+</section>
+<section id="the-installation-pathway-a-note-on-getting-started-1" class="level4" data-number="1.5.2.5">
+<h4 data-number="1.5.2.5" class="anchored" data-anchor-id="the-installation-pathway-a-note-on-getting-started-1"><span class="header-section-number">1.5.2.5</span> The Installation Pathway: A Note on Getting Started</h4>
+<p>Consistent with the spirit of this text, we do not provide detailed installation instructions for R and RStudio. Installation procedures evolve over time, and the most reliable guidance is always found in official, up-to-date documentation. Instead, this section offers a brief orientation to help readers begin with clarity and confidence.</p>
+<p>R is the core statistical computing language, while RStudio functions as an integrated development environment built on top of it. Accordingly, R must be installed first. Both tools are freely available, thoroughly documented, and supported across major operating systems. The official websites provide comprehensive installation guides, platform-specific instructions, and troubleshooting resources to facilitate a smooth setup.</p>
+<p>Readers are encouraged to consult the following authoritative sources:</p>
+<ul>
+<li><a href="https://www.r-project.org/"><strong>R</strong></a> — The R Project for Statistical Computing<br>
+</li>
+<li><a href="https://posit.co/download/rstudio-desktop/"><strong>RStudio</strong></a> — The integrated development environment for R</li>
+</ul>
+<p>Occasional installation challenges may arise due to operating system configurations, security permissions, or environment settings. In most cases, careful attention to the official documentation is sufficient to resolve them. While these preliminary steps may require patience, they establish access to a powerful analytical environment that will support the computational and statistical work developed throughout this book.</p>
+</section>
+</section>
+<section id="r-and-python-as-complementary-instruments" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="r-and-python-as-complementary-instruments"><span class="header-section-number">1.5.3</span> R and Python as Complementary Instruments</h3>
+<p>In contemporary discussions of data analysis, R and Python are often portrayed as competing alternatives, as if the rise of one implied the decline of the other. This framing overlooks a more accurate and productive reality: the two languages thrive through complementarity rather than opposition. Each emerges from a distinct intellectual lineage and embodies different design priorities, and it is precisely this divergence that makes their combined use so powerful.</p>
+<p>Python has established itself as a versatile, general-purpose language capable of supporting workflows that range from exploratory scripts to production-grade systems. Its ecosystem reflects an orientation toward integration, scalability, and software robustness. R, in contrast, is deeply rooted in statistical methodology. Its abstractions, modeling interfaces, and literate programming tools arise from a tradition centered on uncertainty, inference, and scientific communication. Python emphasizes architectural flexibility and system integration; R emphasizes analytical depth and methodological expressiveness.</p>
+<p>Rather than occupying the same conceptual territory, the two languages tend to inhabit complementary regions of the analytical workflow. R provides an environment in which models can be formulated, explored, and critically evaluated with methodological precision. Python extends these models into data pipelines, applications, and technological infrastructures. In practice, the path from exploratory analysis to operational deployment often spans both ecosystems, with statistical insight emerging in one and scalable implementation realized in the other.</p>
+<p>This complementarity becomes visible across domains. In genomics, R supports sophisticated inferential modeling while Python manages large-scale data processing. In finance, R facilitates exploratory time-series analysis while Python integrates execution systems and data engineering workflows. In machine learning contexts, Python drives large-scale architectures, whereas R contributes interpretability, diagnostics, and visualization grounded in statistical reasoning. The interaction between the two is not exceptional but routine.</p>
+<p>Viewing R and Python as complementary tools encourages a pragmatic and intellectually honest approach to Data Science. Tools are selected according to purpose rather than allegiance. Scientific rigor and computational scalability are not competing values, but interdependent dimensions of the same enterprise. Under this perspective, R and Python form a coherent partnership—one that reflects both the diversity of modern analytical practice and the plurality of traditions from which it emerged.</p>
+<p>With the conceptual, methodological, and computational instruments now in place, we turn to the formal foundations that make Data Science possible. Probability theory provides the mathematical language for modeling uncertainty, and it is upon this language that statistical reasoning is constructed. The journey now moves from tools to structure, from practice to principle.</p>
+</section>
+</section>
+</section>
+<section id="references" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-tukey1962future" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">J. W. Tukey, <span>“The future of data analysis,”</span> in <em>Breakthroughs in statistics: Methodology and distribution</em>, Springer, 1962, pp. 408–452.</div>
+</div>
+<div id="ref-donoho2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">D. L. Donoho, <span>“50 years of data science,”</span> <em>Journal of Computational and Graphical Statistics</em>, vol. 26, no. 4, pp. 745–766, 2017.</div>
+</div>
+<div id="ref-naur1974concise" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">P. Naur, <em>Concise survey of computer methods</em>. Petrocelli/Charter Books, 1974.</div>
+</div>
+<div id="ref-wu1997statistics" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">C. F. J. Wu, <span>“Statistics = data science?”</span> 1997. Available: <a href="https://www2.isye.gatech.edu/~jeffwu/presentations/datascience.pdf">https://www2.isye.gatech.edu/~jeffwu/presentations/datascience.pdf</a></div>
+</div>
+<div id="ref-cleveland2001data" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">W. S. Cleveland, <span>“Data science: An action plan for expanding the technical areas of the field of statistics,”</span> <em>International Statistical Review</em>, vol. 69, no. 1, pp. 21–26, 2001.</div>
+</div>
+<div id="ref-breiman2001statistical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">L. Breiman, <span>“Statistical modeling: The two cultures,”</span> <em>Statistical Science</em>, vol. 16, no. 3, pp. 199–231, 2001.</div>
+</div>
+<div id="ref-davenport2012data" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">T. H. Davenport and D. Patil, <span>“Data scientist,”</span> <em>Harvard business review</em>, vol. 90, no. 5, pp. 70–76, 2012.</div>
+</div>
+<div id="ref-johansson2016philosophy" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">L.-G. Johansson <em>et al.</em>, <em>Philosophy of science for scientists</em>. Springer, 2016.</div>
+</div>
+<div id="ref-klimovsky1994desventuras" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">G. Klimovsky, <em>Las desventuras del conocimiento científico</em>. A-Z Editora, 1994.</div>
+</div>
+<div id="ref-kozyrkov2018great" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">C. Kozyrkov, <span>“What great data analysts do—and why every organization needs them,”</span> <em>Harvard Business Review</em>, 2018.</div>
+</div>
+<div id="ref-savitch2018problem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">W. J. Savitch and K. Mock, <em>Problem solving with c++</em>. Pearson, 2018.</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

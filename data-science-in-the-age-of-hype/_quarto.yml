@@ -1,0 +1,34 @@
+project:
+  output-dir: _output
+
+title: "Data Science in the Age of Hype"
+subtitle: "Why the scientific method still matters"
+author: "Rodrigo Kang"
+date: today
+lang: en
+bibliography: references.bib
+csl: ieee.csl
+
+number-sections: true
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 4
+    code-copy: true
+    code-line-numbers: true
+    mermaid:
+      theme: default
+  pdf:
+    include-in-header: header.tex
+    pdf-engine: xelatex
+    documentclass: article
+    fontsize: 12pt
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    mainfont: "Linux Libertine O"
+    link-citations: true
+    tbl-cap-location: bottom
+    fig-cap-location: bottom
