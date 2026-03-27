@@ -4,7 +4,7 @@ project:
 title: "Data Science in the Age of Hype"
 subtitle: "Why the scientific method still matters"
 author: "Rodrigo Kang"
-date: today
+#date: today
 lang: en
 bibliography: references.bib
 csl: ieee.csl
