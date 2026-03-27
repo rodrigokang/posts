@@ -32,7 +32,7 @@ However, the rapid growth of the field has also brought an unintended consequenc
 
 This tension raises a critical question for modern practitioners: if Data Science claims to be a science, what role does the scientific method play in its practice today? Addressing this question requires revisiting the principles that define scientific reasoning and examining how they apply to the analysis and interpretation of data in an era increasingly shaped by computational power and algorithmic models.
 
-## The Nature of Science and the Scientific Method
+# The Nature of Science and the Scientific Method
 
 The very semantics of the term *Data Science* make it impossible to detach it from the concept of *science*. This forces us to pause and reflect: can Data Science truly be regarded as a scientific discipline, or is it merely a fashionable commercial label? A comprehensive analysis of the nature of science lies far beyond the scope of this article; however, for the sake of intellectual honesty, we should not evade the issue. At the very least, we ought to clarify what makes an activity genuinely *scientific*.
 
@@ -50,7 +50,7 @@ To illustrate this in a Data Science context, consider a credit-scoring model. C
 
 In this sense, Data Science can be expressed as **Inference + Prediction**, or equivalently, as **Statistics + Machine Learning**. It unites the inductive strength of statistics with the deductive rigor of model testing, fulfilling Breiman’s vision of a discipline that bridges explanation and prediction a modern science of learning from data. The next section will examine this duality through the lens of the *Hypothetico-Deductive Method*, the framework that ultimately solidifies the scientific character of Data Science.
 
-## The Scientific Mindset of a Data Scientist
+# The Scientific Mindset of a Data Scientist
 
 At the core of scientific inquiry lies a logical structure that transcends individual disciplines: the **Hypothetico-Deductive Method**. It provides the conceptual backbone of the scientific method, linking theoretical conjecture with empirical observation. The process begins with a hypothesis—a tentative model proposed to explain observed behavior or predict its future course. or predict its future course. From this hypothesis, one deduces empirically testable consequences. These predictions are then confronted with real data through experimentation or systematic observation. When evidence contradicts the hypothesis, it must be revised or discarded; when the evidence supports it, the hypothesis gains provisional credibility, though never definitive truth.
 
@@ -104,7 +104,7 @@ graph TB
 
 Viewed from this angle, the role of a data scientist extends far beyond executing algorithms or statistical routines. It is the **iterative application of the scientific method** across diverse business contexts generating hypotheses, building predictive and causal models, confronting them with evidence, and allowing data to arbitrate which explanations survive. Data Science thus emerges not merely as a technical discipline, but as the **contemporary expression of scientific thinking** applied to data-rich environments, where distinguishing correlation from causation and prediction from explanation defines true professional excellence.
 
-## The Fundamental Constituents of Data Science
+# The Fundamental Constituents of Data Science
 
 Despite its rapid expansion and increasing visibility, Data Science is often portrayed as a discipline defined by an ever-growing collection of tools, frameworks, and technological trends. New libraries, platforms, and modeling techniques appear constantly, creating the impression that the field evolves primarily through technological novelty. This perception, however, can be misleading. While modern practice indeed relies on a rich computational ecosystem, the scientific core of Data Science is not defined by software stacks or fashionable methodologies. Rather, it rests on a far more compact and principled foundation: **probabilistic reasoning and statistical inference**.
 
@@ -112,7 +112,7 @@ From a first-principles perspective, Data Science is best understood as a system
 
 Computation plays a crucial—but often misunderstood—role in this framework. The term *computation* derives from the Latin *computatio*, formed by the prefix *com* (“together” or “with”) and *putatio*, related to *putare*, meaning “to calculate” or “to reckon.” In its original sense, the word conveys the idea of **calculating together**. In this light, computation can be understood not as an autonomous source of knowledge, but as a process through which machines assist human reasoning by carrying out calculations at scales and speeds beyond our natural capacity. Algorithms, programming languages, and computational environments therefore act as instruments that enable probabilistic models to be simulated, statistical procedures to be implemented, and empirical hypotheses to be tested. Computation does not define Data Science; it provides the **operational medium** through which probabilistic and statistical reasoning becomes executable in practice.
 
-## Data Science as a Strategic Value Engine
+# Data Science as a Strategic Value Engine
 
 At this point, it is crucial to emphasize a key principle that often gets overlooked: **Data Science is not a goal in itself**. No matter how sophisticated the methodologies or how advanced the machine learning models, they are worthless if they do not generate real and measurable impact. The true purpose of Data Science is to inform and improve strategic decisions—transforming data into outcomes that advance organizational goals.
 
@@ -126,7 +126,7 @@ Consider, for example, the case of **customer churn** in retail. Without Data Sc
 
 Viewed through this lens, Data Science becomes a **strategic value engine**: a discipline that leverages scientific reasoning, computational tools, and domain expertise to drive decisions that matter. This synthesis—model-driven insight aligned with real-world objectives—ensures that Data Science fulfills its true mission: transforming information into impact.
 
-## Why the Scientific Method Still Matters
+# Why the Scientific Method Still Matters
 
 The strategic impact of Data Science ultimately stems from something deeper than predictive models or analytical pipelines. Its real strength lies in the intellectual framework that guides how data is interpreted, hypotheses are formulated, and decisions are evaluated. The ability of Data Science to generate meaningful impact in organizations is therefore inseparable from the scientific principles that structure its practice.
 
