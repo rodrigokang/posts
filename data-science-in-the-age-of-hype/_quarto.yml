@@ -20,15 +20,15 @@ format:
     code-line-numbers: true
     mermaid:
       theme: default
-  pdf:
-    include-in-header: header.tex
-    pdf-engine: xelatex
-    documentclass: article
-    fontsize: 12pt
-    toc: true
-    toc-depth: 4
-    number-sections: true
-    mainfont: "Linux Libertine O"
-    link-citations: true
-    tbl-cap-location: bottom
-    fig-cap-location: bottom
+#  pdf:
+#    include-in-header: header.tex
+#    pdf-engine: xelatex
+#    documentclass: article
+#    fontsize: 12pt
+#    toc: true
+#    toc-depth: 4
+#    number-sections: true
+#    mainfont: "Linux Libertine O"
+#    link-citations: true
+#    tbl-cap-location: bottom
+#    fig-cap-location: bottom
