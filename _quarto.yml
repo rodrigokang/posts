@@ -8,6 +8,7 @@ book:
   author: "Rodrigo Kang"
   language: en
   cover-image: cover.png
+  downloads: [pdf]
 
   sidebar:
     collapse-level: 1
@@ -18,9 +19,6 @@ book:
         href: https://www.linkedin.com/in/rodrigojuankang/
       - icon: envelope
         href: "mailto:rodrigokang88@gmail.com"
-      - icon: file-pdf
-        href: https://rodrigokang.github.io/posts/scientific-computing-and-data-science.pdf
-        target: _blank
 
   chapters:
     - index.qmd
