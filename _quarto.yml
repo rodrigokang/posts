@@ -18,8 +18,6 @@ book:
         href: https://www.linkedin.com/in/rodrigojuankang/
       - icon: envelope
         href: "mailto:rodrigokang88@gmail.com"
-      - icon: file-pdf
-        href: https://raw.githubusercontent.com/rodrigokang/posts/scientific-computing-and-data-science.pdf
 
   chapters:
     - index.qmd
