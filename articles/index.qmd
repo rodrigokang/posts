@@ -1,0 +1,18 @@
+# Preface {.unnumbered}
+
+**Scientific Computing and Data Science**  
+*Mathematical Models, Algorithms, and Applications*
+
+This book presents a collection of scientific and technical essays exploring the role of mathematical modeling and computation in modern data science and related fields. Rather than focusing on a single discipline, the articles span several areas where mathematical reasoning, algorithms, and computational experimentation play a central role.
+
+The topics covered include data science, scientific computing, mathematical physics, quantitative finance, and computational methods. Despite the diversity of applications, the underlying perspective remains consistent: complex problems are approached by formulating mathematical models, designing computational algorithms, and analyzing their behavior through simulation and empirical investigation.
+
+Each chapter is written as a standalone article. Some chapters explore foundational ideas—such as the role of the scientific method in data science or the structure of mathematical models—while others examine concrete applications drawn from areas such as physics, finance, or machine learning.
+
+Whenever appropriate, the discussion is complemented by computational experiments. The source code associated with each article is available in the repository accompanying this book, allowing readers to reproduce results, explore the algorithms, and examine the implementation details behind the models discussed in the text.
+
+The goal of this work is not to provide a comprehensive textbook treatment of any particular field. Instead, it offers a series of essays illustrating how mathematical models and computational methods can be used to understand and solve problems across different domains.
+
+Many of the ideas presented here are influenced by my background in physics and quantitative modeling, where theoretical reasoning and computational experimentation naturally complement one another. This perspective continues to inform my work in data science and scientific computing.
+
+Although the chapters can be read independently, together they reflect a consistent approach to scientific problem solving—one that combines mathematical modeling, algorithmic thinking, and computational experimentation.
