@@ -8,7 +8,6 @@ book:
   author: "Rodrigo Kang"
   language: en
   cover-image: cover.png
-  downloads: [pdf]
 
   sidebar:
     collapse-level: 1
