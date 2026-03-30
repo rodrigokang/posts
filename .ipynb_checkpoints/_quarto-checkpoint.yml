@@ -1,0 +1,52 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Scientific Computing and Data Science"
+  subtitle: "Mathematical Models, Algorithms, and Applications"
+  author: "Rodrigo Kang"
+  language: en
+  cover-image: cover.png
+
+  sidebar:
+    collapse-level: 1
+    tools:
+      - icon: github
+        href: https://github.com/rodrigokang/posts
+      - icon: linkedin
+        href: https://www.linkedin.com/in/rodrigojuankang/
+      - icon: envelope
+        href: "mailto:rodrigokang88@gmail.com"
+      - icon: file-pdf
+        href: https://raw.githubusercontent.com/rodrigokang/posts/main/scientific-computing-and-data-science.pdf
+
+  chapters:
+    - index.qmd
+    - about.qmd
+    - data-science-age-of-hype.qmd
+    - conformal-geometry.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: ieee.csl
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    code-line-numbers: false
+    mermaid:
+      theme: default
+  pdf:
+    include-in-header: header.tex
+    latex-engine: xelatex
+    documentclass: book
+    fontsize: 12pt
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    mainfont: "Linux Libertine O"
+    link-citations: true
+    mermaid:
+      theme: default
