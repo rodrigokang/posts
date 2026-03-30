@@ -2,7 +2,6 @@
 
 **Scientific Computing and Data Science — Mathematical Models, Algorithms, and Applications**  
 - [Read online](https://rodrigokang.github.io/posts)  
-- [PDF version](https://raw.githubusercontent.com/rodrigokang/posts/scientific-computing-and-data-science.pdf)
 
 This repository contains the computational material supporting the articles included in *Scientific Computing and Data Science — Mathematical Models, Algorithms, and Applications*. The book is organized as a collection of independent scientific and technical essays exploring the role of mathematical modeling and computation across several domains, including data science, machine learning, quantitative finance, and mathematical physics.
 
